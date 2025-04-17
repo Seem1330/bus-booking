@@ -1,0 +1,7 @@
+/* You can add global styles to this file, and also import other style files */
+.navbar {
+    background: #1f2937f2 !important;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    animation: slideDown .5s ease;
+}
