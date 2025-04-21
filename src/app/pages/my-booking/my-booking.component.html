@@ -1,1 +1,25 @@
-<p>my-booking works!</p>
+<div class="container mt-4">
+    <h2 class="mb-4">🚌 My Bookings</h2>
+    @if (mybookingDetails) {
+    <div class="card mb-3 shadow-sm p-3">
+    <div class="card-header"><h4> Travels Name :  {{busName}} </h4> </div>
+     <div class="d-flex justify-content-between card-title p-2">  
+      <p>🕐 <strong> Booking Date: </strong> {{ mybookingDetails.bookingDate | date:'dd-MMM-yyyy hh:mm:ss a' }} </p>
+      <p>📄 <strong>Booking ID: </strong> {{ mybookingDetails.bookingId }} </p> 
+    </div>
+         
+    <div class="m-2" style="padding-left: 10px;" >
+      @for (item of bookingSeatDetails.busBookingPassengers; track $index) {
+       
+        <div class="mb-1"> 
+            <p> <strong> Passenger Name : </strong>  {{item?.passengerName}}</p>
+            <p> <strong> Seat No : </strong>  {{item?.seatNo}} </p>
+            <p> <strong> Gender : </strong>{{item?.gender}}</p>
+            <hr>
+        </div>
+      
+      }  
+    </div>
+</div>
+}
+  </div>
