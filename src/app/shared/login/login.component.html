@@ -1,0 +1,66 @@
+<div id="authModal" tabindex="-1"  class="modal" #model>
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body p-4">
+                @if (isLoginForm) {
+                <div>
+                    <form novalidate="" class="ng-pristine ng-invalid ng-touched">
+                        <div class="d-flex justify-content-between">
+                          <h4 class="text-center fw-bold  mb-3">Login</h4>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="closePopUp()"></button>               
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label"><i class="bi bi-envelope me-1"></i> UserName </label>
+                            <input type="text" class="form-control ng-pristine ng-invalid ng-touched" name="userName" [(ngModel)]="loginObj.userName" >
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label"><i class="bi bi-lock me-1"></i>Password </label>
+                            <input type="password" name="password" [(ngModel)]="loginObj.password" class="form-control ng-untouched ng-pristine ng-invalid">
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100 mb-3" (click)="onLogin()">
+                                <i class="bi bi-box-arrow-in-right me-2"></i>Login
+                        </button>
+                        <p class="text-center mb-0"  (click)="isLoginForm = false"> Don't have an account? <a data-form="signup"
+                                class="toggle-auth">Sign Up</a></p>
+                    </form>
+                </div>
+            }   @else {
+                <div>
+                    <form novalidate="" class="ng-untouched ng-pristine ng-invalid">
+                        <div class="d-flex justify-content-between">
+                            <h4 class="text-center fw-bold  mb-3"> Sign Up </h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="closePopUp()"></button>               
+                          </div>
+                        <div class="mb-3">
+                            <label class="form-label"><i class="bi bi-person me-1"></i>Full Name  </label>
+                            <input type="text" formcontrolname="fullName"
+                                class="form-control ng-untouched ng-pristine ng-invalid">
+                            </div>
+                        <div class="mb-3">
+                            <label class="form-label"><i class="bi bi-envelope me-1"></i>Email </label>
+                            <input type="email" formcontrolname="emailId"
+                                class="form-control ng-untouched ng-pristine ng-invalid">
+                            </div>
+                        <div class="mb-3">
+                            <label class="form-label"><i class="bi bi-lock me-1"></i>User Name </label>
+                            <input type="password" formcontrolname="userName"
+                                class="form-control ng-untouched ng-pristine ng-invalid">
+                            </div>
+                        <div class="mb-3">
+                            <label class="form-label"><i class="bi bi-lock-fill me-1"></i>Confirm Password</label>
+                            <input type="password" formcontrolname="password"
+                                class="form-control ng-untouched ng-pristine ng-invalid">
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100 mb-3" (click)="onRegister()" >
+                                <i class="bi bi-person-plus me-2"></i>
+                                Sign Up </button>
+                        <p class="text-center mb-0"  (click)="isLoginForm = true"> Already have an account? 
+                            <a data-form="login" class="toggle-auth">Login</a></p>
+                    </form>
+                </div>
+            }
+            </div>
+        </div>
+    </div>
+</div>
+
