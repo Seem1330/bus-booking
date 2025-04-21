@@ -6,11 +6,19 @@
     </button>
     <div id="navbarNav" class="collapse navbar-collapse">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link"><i class="fa fa-arrow-right me-1"></i>Login </a>
+        @if(loggedUser.userId == 0) {
+        <li class="nav-item"><a class="nav-link"><i class="fa fa-user me-1"></i></a></li>
+        <li class="nav-item" (click)="onLogin()">
+          <a class="nav-link"><i class="fa fa-arrow-right me-1"></i> Login </a>
         </li>
+        } @else {
+        <li class="nav-item"><a class="nav-link"><i class="fa fa-user me-1"></i> {{loggedUser.userName}} </a></li>
+        <li class="nav-item"><a class="nav-link" (click)="logOut()"><i class="fa fa-arrow-right me-1"></i>LogOff </a>
+        </li>
+        }
       </ul>
     </div>
   </div>
 </nav>
 <router-outlet></router-outlet>
+<app-login></app-login>

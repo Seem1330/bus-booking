@@ -5,3 +5,45 @@
     backdrop-filter: blur(10px);
     animation: slideDown .5s ease;
 }
+body{
+    background-color: #f3f4f6;
+}
+.card {
+    border: none;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 10px 30px -5px #0000001a;
+    transition: all .3s ease;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.card-title::before {
+    margin-bottom: none;
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    box-sizing: border-box;
+    height: 100%;
+    background: linear-gradient(to bottom, #4f46e5,#ec4899);
+}
+
+.card-body {
+    flex: 1 1 auto;
+    padding: 1rem;
+    background: linear-gradient(to right, #fff, #f8fafc);
+    position: relative;
+}
+
+.card-body::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    box-sizing: border-box;
+    height: 100%;
+    background: linear-gradient(to bottom, #4f46e5,#ec4899);
+}

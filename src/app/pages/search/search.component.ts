@@ -1,23 +1,23 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Search } from '../models/model';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-search',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './search.component.html',
   styleUrl: './search.component.css'
 })
 export class SearchComponent implements OnInit{
-
   locationList :any []=[];
+  searchObj:Search = new Search();
+
   http = inject(HttpClient);
   route = inject(Router);
 
-  // locationList: { locationId: number; locationName: string ,code:string }[] = [];
-
-  constructor(){}
   ngOnInit(): void {
     this.getAllLocations();
   }
@@ -28,4 +28,7 @@ export class SearchComponent implements OnInit{
     })
   }
 
+  searchBuses(){
+    this.route.navigate(['search-result', this.searchObj.fromLocationId, this.searchObj.toLocationId, this.searchObj.date]);
+}
 }
